@@ -2,6 +2,7 @@ import firebasefrom 'firebase/app';
 import 'firebase/firestore;'
 
 const firebaseConfig = firebase.initializeApp({
+
   apiKey: 'AIzaSyCdCxFouYPwnr-trUZT2ip4jsuaYzqDKA8',
   authDomain: 'fearns-todoist.firebaseapp.com',
   databaseURL: 'https://fearns-todoist.firebaseio.com',
