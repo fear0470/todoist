@@ -1,2 +1,2 @@
-export const collatedTasksExist  = selectedProject => 
+export const collatedTasks  = selectedProject => 
   collatedTasksExist.find(task => task.key === selectedProject);
