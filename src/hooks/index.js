@@ -9,7 +9,7 @@ export const useTasks = selectedProject => {
   const [tasks, setTasks] = useState([]);
   const [archivedTasks, setArchivedTasks] = useState([]);
 
-  userEffect(() => {
+  useEffect(() => {
     let unsubscribe = firebase
       .firestore()
       .collection('tasks')
@@ -58,7 +58,7 @@ export const useProjects = () => {
     firebase
       .firestore()
       .collection('projects')
-      .where('userId', '==', 'cnccnw3');
+      .where('userId', '==', 'cnccnw3')
       .orderBy('projectId')
       .get()
       .then(snapshot => {
@@ -67,7 +67,7 @@ export const useProjects = () => {
           docId: project.id,
         }));
 
-        if (JSON..stringify(allProjects) !== JSON.stringify(projects)) {
+        if (JSON.stringify(allProjects) !== JSON.stringify(projects)) {
           setProjects(allProjects);
         }
       });
