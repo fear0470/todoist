@@ -8,7 +8,7 @@ export const Tasks = () => {
   let projectName = '';
 
   return ( 
-    <div> className="tasks" data-testid="tasks">
+    <div className="tasks" data-testid="tasks">
       <h2 data-testid="project-name">{projectName}</h2>
 
       <ul className="tasks__list">
