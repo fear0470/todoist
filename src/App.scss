@@ -72,7 +72,7 @@ $generic-bg: #db4c3f;
   line-height: 17px;
   padding: 6px 12px 7px 12px;
   position: relative;
-  display; inline-block;
+  display: inline-block;
   white-space: nowrap;
   border-radious: 3px !important;
   text-align: center;
@@ -140,7 +140,7 @@ header {
     grid-template-rows: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    max-width: 922px:
+    max-width: 922px;
     margin: auto;
     height: 44px;
   }
