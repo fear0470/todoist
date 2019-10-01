@@ -30,11 +30,9 @@ $generic-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px, rgba(0,0,0,0.1) 0px 4px
 $generic-border: 1px solid #f1f1f1;
 $generic-bg: #db4c3f;
 
-<<<<<<< HEAD
+
 /* Mixins */
-=======
-/* Mixins*/
->>>>>>> abf14b3b126769e79e102e75cdc54756f1372272
+
 @mixin box-overlay() {
   box-shadow: $generic-box-shadow;
   position: absolute;
@@ -137,7 +135,7 @@ header {
   @include mq('900px') {
     padding: 0 10px;
   }
-<<<<<<< HEAD
+
 
  nav {
     display: grid;
@@ -149,12 +147,52 @@ header {
     max-width: 922px;
     margin: auto;
     height: 44px;
-  }
-  }
 
+    p, li {
+    color: white;
+    }
 
+    div {
+      &.logo {
+        padding-left: 8px;
+        grid-area: 1/1;
 
-=======
+        img {
+          width: 24px;
+        }
+      }
+
+      &.settings {
+        grid-area: 1/2;
+        text-align: right;
+
+        ul {
+          float: right;
+
+          li {
+            @include va;
+
+            list-style-type: none;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            vertical-align: middle;
+            float: left;
+
+            &:hover {
+              border-radius: 3px;
+              background-color: rgba(255,255,255,0.2);
+          }
+        }
+      }
+    }
   }
 }
->>>>>>> abf14b3b126769e79e102e75cdc54756f1372272
+
+
+
+
+
+}
+
