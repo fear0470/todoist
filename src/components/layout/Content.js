@@ -7,4 +7,4 @@ export const Content = () => (
     <Sidebar />
     <Tasks />
   </section>
-  )
+  );

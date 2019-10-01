@@ -12,7 +12,7 @@ body {
   padding: 0;
   line-height: 1;
   font-family: 'Roboto', sans-serif;
-  color: green;
+  color: black;
   background-color: #FAFAFA;
   font-smooth: always;
   -webkit-font-smoothing: antialised;
@@ -24,13 +24,17 @@ ul {
   padding: 0;
 }
 
-// Variables
 
-$generic-box-shadow: rgba(0,0,0,0.1) 0px 0px 0px 1px, rgba(0,0,0,0.1) 0px 4px 11px;
+
+$generic-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px, rgba(0,0,0,0.1) 0px 4px 11px;
 $generic-border: 1px solid #f1f1f1;
 $generic-bg: #db4c3f;
 
+
+/* Mixins */
+=======
 /* Mixins*/
+
 @mixin box-overlay() {
   box-shadow: $generic-box-shadow;
   position: absolute;
@@ -108,6 +112,7 @@ $generic-bg: #db4c3f;
   @media (max-width: $from) {
     @content;
   }
+}
 
 .darkmode {
   header {
@@ -132,5 +137,17 @@ header {
   @include mq('900px') {
     padding: 0 10px;
   }
+
+
+ nav {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    max-width: 922px;
+    margin: auto;
+    height: 44px;
   }
-}
+  }
