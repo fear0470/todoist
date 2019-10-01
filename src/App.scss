@@ -30,7 +30,11 @@ $generic-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px, rgba(0,0,0,0.1) 0px 4px
 $generic-border: 1px solid #f1f1f1;
 $generic-bg: #db4c3f;
 
+<<<<<<< HEAD
 /* Mixins */
+=======
+/* Mixins*/
+>>>>>>> abf14b3b126769e79e102e75cdc54756f1372272
 @mixin box-overlay() {
   box-shadow: $generic-box-shadow;
   position: absolute;
@@ -133,6 +137,7 @@ header {
   @include mq('900px') {
     padding: 0 10px;
   }
+<<<<<<< HEAD
 
  nav {
     display: grid;
@@ -149,3 +154,7 @@ header {
 
 
 
+=======
+  }
+}
+>>>>>>> abf14b3b126769e79e102e75cdc54756f1372272
