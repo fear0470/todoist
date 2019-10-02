@@ -236,6 +236,7 @@ header {
       svg {
         color: #cacaca;
       }
+    }
 
       &.active, &:hover {
         font-weight: bold;
@@ -307,7 +308,7 @@ header {
         padding-bottom: 20px;
       }
     }
-  }
+  
 
     &__generic {
       li {
@@ -328,8 +329,11 @@ header {
             color: #555;
           }
         }
+        &.active, &:hover {
+        font-weight: bold;
+        background-color: white;
+         }
       }
     }
-  
-}
+  }
 
