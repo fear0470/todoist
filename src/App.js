@@ -1,14 +1,22 @@
 import React from 'react';
 import { Header } from './components/layout/Header';
 import { Content } from './components/layout/Content';
+import { ProjectsProvider, SelectedProjectProvider} from './context';
 
 
-export const App =() => (
+export const App =() => {
   
-    <div className="App">
-      <Header />
-      <Content />
-    </div>
-  );
+  
+    return (
+      <SelectedProjectProvider>
+        <ProjectProvider>
+          <div className="App">
+            <Header />
+            <Content />
+          </div>
+        </ProjectProvider>
+      </SelectedProjectProvider>
+    );
+
 
 
