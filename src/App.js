@@ -9,14 +9,12 @@ export const App =() => {
   
     return (
       <SelectedProjectProvider>
-        <ProjectProvider>
+        <ProjectsProvider>
           <div className="App">
             <Header />
             <Content />
           </div>
-        </ProjectProvider>
+        </ProjectsProvider>
       </SelectedProjectProvider>
     );
-
-
-
+  };
