@@ -33,6 +33,7 @@ $generic-bg: #db4c3f;
 
 /* Mixins */
 
+
 @mixin box-overlay() {
   box-shadow: $generic-box-shadow;
   position: absolute;
@@ -216,6 +217,7 @@ header {
     display: none;
   }
 
+
   li {
     padding-left: 10px;
     padding-right: 15px;
@@ -336,4 +338,5 @@ header {
       }
     }
   }
+
 
