@@ -5,7 +5,12 @@ import {
   FaRegCalendarAlt,
   FaRegCalendar,
 } from 'react-icons/fa';
+import { Projects } from '../Projects';
 import { useSelectedProjectValue } from '../../context';
+
+
+
+
 const [active, setActive] = useState('inbox');
 const [showProjects, setShowProjects] = useState(true);
 
@@ -44,7 +49,9 @@ export const Sidebar = () => {
     <h2> Projects</h2>
   </div>
 
-  <ul className="sidebar__projects">Projects will be here</ul>
+  <ul className="sidebar__projects">{showProjects && <Projects />}</ul>
+
+  {showProjects && <Projects />}
 </div>
 )};
 

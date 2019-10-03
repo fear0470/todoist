@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelectedProjectValue, useProjectsValue } from '../context';
+import { IndivindualProject } from './IndivindualProject';
 
 export const Projects = ({ activeNull = null }) => {
   const [active, setActive] = useState(activeValue);
@@ -23,8 +24,12 @@ export const Projects = ({ activeNull = null }) => {
           setSelectedProject(project.projectId);
         }}
       >
-        I am a project
+        <IndivindualProject />
         </li>
       )) 
     );
+ };
+
+ Projects.propTypes = {
+  activeValue: PropTypes.bool,
  };
