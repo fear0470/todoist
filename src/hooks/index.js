@@ -3,7 +3,6 @@ import moment from 'moment';
 import { firebase} from '../firebase';
 import { collatedTasksExist } from '../helpers';
 
-const collatedTasks = () => {};
 
 export const useTasks = selectedProject => {
   const [tasks, setTasks] = useState([]);
