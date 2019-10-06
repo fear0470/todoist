@@ -3,7 +3,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 import { useProjectsValue, useSelectedProjectValue } from '../context';
 import {firebase} from '../firebase';
 
-export const IndividualProject = ({project}) => {
+export const IndividualProject = ({ project }) => {
   const [showConfirm, setShowConfirm] = useSelectedProjectValue(false);
   const { projects, setProjects } = useProjectsValue();
   const { setSelectedProject } = useSelectedProjectValue();
@@ -12,7 +12,7 @@ export const IndividualProject = ({project}) => {
     firebase
       .firestore()
       .collection('projects')
-      .dec(docId)
+      .doc(docId)
       .delete()
       .then(() => {
         setProjects([...projects]);
@@ -28,6 +28,10 @@ export const IndividualProject = ({project}) => {
         className="sidebar__project-delete"
         data-testid="delete-project" 
         onClick={()=> setShowConfirm(!showConfirm)}
+        onKeyDown={() => setShowConfirm(!showConfirm)}
+        tabIdex={0}
+        role="button"
+        aria-label="Confirm deletion of project"
       >
         <FaTrashAlt />
         {showConfirm && (
@@ -38,13 +42,21 @@ export const IndividualProject = ({project}) => {
                 type="button"
                 onClick={()=> deleteProject(project.docId)}
               >
-                delete
-                <span onClick={() => setShowConfirm(!showConfirm)}>Cancel</span>
-              </button>
+                Delete
+                </button>
+                <span
+                   onClick={() => setShowConfirm(!showConfirm)}
+                   onKeyDown={() => setShowConfirm(!showConfirm)}
+                   tabIdex={0}
+                   role="button"
+                   aria-label="Cancell adding project, do not delete"
+                   >
+                    Cancel
+                </span>
             </div>
           </div>
           )}
       </span>
     </>
-    )
+    );
 };
