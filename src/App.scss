@@ -382,8 +382,8 @@ header {
   margin: auto;
 }
 
-/*  Tasks */
-. tasks {
+
+.tasks {
   width: 656px;
   background-color: white;
   margin-left: 266px;
@@ -401,7 +401,7 @@ header {
   }
 
   h2 {
-    font-size: 20px
+    font-size: 20px;
     font-weight: normal;
     margin: 0 30px 20px 0;
   }
@@ -434,7 +434,7 @@ header {
 
       .checkbox {
       cursor: pointer;
-      border-color; gray;
+      border-color: gray;
       color: #343434;
       height: 16px;
       width: 16px;
