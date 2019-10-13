@@ -19,7 +19,7 @@ export const AddTask = ({
 
   const { selectedProject } = useSelectedProjectValue();
 
-  const AddTask = () -> {
+  const addTask = () => {
     const projectId = project || selectedProject;
     let collatedDate = '';
 
@@ -43,7 +43,7 @@ export const AddTask = ({
         task,
         date: collatedDate || taskDate,
         userId: 'cnccnw3',
-      });
+      })
       .then(() => {
         setTask('');
         setProject('');
@@ -71,8 +71,5 @@ export const AddTask = ({
           <span className="add-task__plus">+</span>
           <span className="add-task__text">Add Task</span>
         </div>
-        )}  
-
-        
-    )
-};
+        );
+      };
