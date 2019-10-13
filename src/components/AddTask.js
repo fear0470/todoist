@@ -6,7 +6,7 @@ import { useSelectedProjectValue } from '../context';
 
 export const AddTask = ({
   showAddTaskMain = true,
-  showShouldMain = false,
+  shouldShowMain = false,
   showQuickAddTask,
   setShowQuickAddTask,
 }) => {
@@ -19,7 +19,7 @@ export const AddTask = ({
 
   const { selectedProject } = useSelectedProjectValue();
 
-  const AddTask = () -> {
+  const addTask = () => {
     const projectId = project || selectedProject;
     let collatedDate = '';
 
@@ -43,7 +43,7 @@ export const AddTask = ({
         task,
         date: collatedDate || taskDate,
         userId: 'cnccnw3',
-      });
+      })
       .then(() => {
         setTask('');
         setProject('');
@@ -54,5 +54,110 @@ export const AddTask = ({
 };
 
 
-  return <p>stop</p>;
-};
+  return (
+    <div
+      className={showQuickAddTask ? 'add-task add-task__overlay' : 'add-task'}
+      data-testid="add-task-comp"
+    >
+      {showAddTaskMain && (
+        <div
+          className="add-task__shallow"
+          data-testid="show-main-action"
+          onClick={() => setShowMain(!showMain)}
+          onKeyDown={() => setShowMain(!showMain)}
+          tabIndex={0}
+          role="button"
+        >
+          <span className="add-task__plus">+</span>
+          <span className="add-task__text">Add Task</span>
+        </div>
+        )}
+
+        {(showMain || showQuickAddTask) && (
+          <div className="add-task__main" data-testid="add-task-main">
+            {showQuickAddTask && (
+              <>
+                <div data-testid="quick-add-task">
+                  <h2 className="header">Quick Add Task</h2>
+                  <span
+                    className="add-task__cancel-x"
+                    data-testid="add-task-quick-cancel"
+                    onClick={() => {
+                      setShowMain(false);
+                      setShowProjectOverlay(false);
+                      setShowQuickAddTask(false);
+                    }}
+                    onKeyDown={() => {
+                      setShowMain(false);
+                      setShowProjectOverlay(false);
+                      setShowQuickAddTask(false);
+                    }}
+                    tabIndex={0}
+                    role="button"
+                  >
+                    X
+                  </span>
+                </div>
+              </>
+              )}
+              <p>Project overlay here</p>
+              <p>TaskDate here</p>
+              <input
+                className="add-task__content"
+                data-testid="add-task-content"
+                type="text"
+                value={task}
+                onChange={e => setTask(e.target.value)}
+              />
+              <button
+                type="button"
+                className="add-task__submit"
+                data-testid="add-task"
+                onClick={() => addTask()}
+                >
+                  Add Task
+                </button>
+                {!showQuickAddTask && (
+                  <span
+                    className="add-task__cancel"
+                    data-testid="add-task-main-cancel"
+                    onClick={() => {
+                      setShowMain(false);
+                      setShowProjectOverlay(false);
+                    }}
+                    onKeyDown={() => {
+                      setShowMain(false);
+                      setShowProjectOverlay(false);
+                    }}
+                    tabIndex={0}
+                    role="button"
+                  >
+                    Cancel
+                  </span>
+                  )}
+                  <span 
+                    className="add-task__project"
+                    data-testid="show-project-overlay"
+                    onClick={() => setShowProjectOverlay(!showProjectOverlay)}
+                    onKeyDown={() => setShowProjectOverlay(!showProjectOverlay)}
+                    tabIndex={0}
+                    role="button"
+                  >
+                    <FaRegListAlt />
+                  </span>
+                  <span
+                    className="add-task__date"
+                    data-testid="show-task-date-overlay"
+                    onClick={() => setShowTaskDate(!showTaskDate)}
+                    onKeyDown={() => setShowTaskDate(!setShowTaskDate)} 
+                    tabIndex={0}
+                    role="button"
+                  >
+                    <FaRegCalendarAlt />
+                  </span>
+                </div>
+              )}
+              </div>
+            );
+          };
+
