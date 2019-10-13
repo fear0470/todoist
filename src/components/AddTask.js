@@ -54,5 +54,25 @@ export const AddTask = ({
 };
 
 
-  return <p>stop</p>;
+  return (
+    <div
+      className={showQuickAddTask ? 'add-task add-task__overlay' : 'add-task'}
+      data-testid="add-task-comp"
+    >
+      {showAddTaskMain && (
+        <div
+          className="add-task__shallow"
+          data-testid="show-main-action"
+          onClick={() => setShowMain(!showMain)}
+          onKeyDown={() => setShowMain(!showMain)}
+          tabIndex={0}
+          role="button"
+        >
+          <span className="add-task__plus">+</span>
+          <span className="add-task__text">Add Task</span>
+        </div>
+        )}  
+
+        
+    )
 };
