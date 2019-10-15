@@ -567,7 +567,27 @@ header {
     }
   }
 }
+
+.project-overlay {
+  @include box-overlay();
+  background-color: white;
+
+  @include mq('900px') {
+    width: 200px;
+    right: 0;
+  }
+
+  &__list li {
+    @include task-item();
+    padding: 0;
+
+    div:nth-child(1) {
+      width: 100%;
+      padding: 10px;
+    }
+  }
 }
+
 
 .add-project {
   padding-left: 13px;
