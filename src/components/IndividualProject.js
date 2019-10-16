@@ -29,7 +29,7 @@ export const IndividualProject = ({ project }) => {
         data-testid="delete-project" 
         onClick={()=> setShowConfirm(!showConfirm)}
         onKeyDown={() => setShowConfirm(!showConfirm)}
-        tabIdex={0}
+        tabIndex={0}
         role="button"
         aria-label="Confirm deletion of project"
       >

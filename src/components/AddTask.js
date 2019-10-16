@@ -71,7 +71,9 @@ export const AddTask = ({
           role="button"
         >
           <span className="add-task__plus">+</span>
-          <span className="add-task__text">Add Task</span>
+          <span className="add-task__text">
+            Add Task
+          </span>
         </div>
         )}
 
@@ -104,10 +106,14 @@ export const AddTask = ({
               )}
               <ProjectOverlay
                 setProject={setProject}
-                setShowProjectOverlay={setShowProjectOverlay}
+                showProjectOverlay={showProjectOverlay}
                 setShowProjectOverlay={setShowProjectOverlay}
                  />
-              <p>TaskDate here</p>
+              <TaskDate
+                setTaskDate={setTaskDate}
+                showTaskDate={showTaskDate}
+                setShowTaskDate={setShowTaskDate}
+              />
               <input
                 className="add-task__content"
                 data-testid="add-task-content"
