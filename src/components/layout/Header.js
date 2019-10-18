@@ -1,5 +1,5 @@
 import React, { useState } from 'react';  
-import { FaPizzaSlice } from 'react-icons/fa';
+import { FaPizzaSlice, FaBlackTie } from 'react-icons/fa';
 import { AddTask } from '../AddTask';
 
 export const Header = ({ darkMode, setDarkMode }) => {
@@ -10,7 +10,7 @@ export const Header = ({ darkMode, setDarkMode }) => {
     <header className="header" data-testid="header">
       <nav>
         <div className="logo">
-          <img src="/images/logo.png" alt="Todoist" />
+          <FaBlackTie />
         </div>
 
         <div className="settings">

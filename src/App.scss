@@ -89,6 +89,11 @@ $generic-bg: #db4c3f;
   margin: 2px 5px;
 }
 
+@mixin transparent-button() {
+  background-color: transparent;
+  border: 0;
+}
+
 @mixin task-item() {
   list-style-type: none;
   display: flex;
@@ -125,8 +130,10 @@ $generic-bg: #db4c3f;
 header {
   border-bottom: solid 1px #ca2100;
   background-color: $generic-bg;
+  -webkit-transition: height 200ms ease-in;
   transition: height 200ms ease-in;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   height: 44px;
   z-index: 400;
   position: fixed;
@@ -137,10 +144,11 @@ header {
     padding: 0 10px;
   }
 
-
- nav {
+  nav {
     display: grid;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     grid-column-gap: 0px;
@@ -150,51 +158,70 @@ header {
     height: 44px;
 
     p, li {
-    color: white;
+      color: white;
     }
 
     div {
       &.logo {
         padding-left: 8px;
-        grid-area: 1/1;
+        grid-area: 1 / 1;
 
         img {
           width: 24px;
         }
+
       }
 
       &.settings {
-        grid-area: 1/2;
+        grid-area: 1 / 2;
         text-align: right;
 
         ul {
           float: right;
+        }
 
-          li {
-            @include va;
+        ul li {
+          @include va;
 
-            list-style-type: none;
-            cursor: pointer;
-            width: 30px;
-            height: 30px;
-            text-align: center;
-            vertical-align: middle;
-            float: left;
+          list-style-type: none;
+          cursor: pointer;
+          width: 30px;
+          height: 30px;
+          text-align: center;
+          vertical-align: middle;
+          float: left;
 
-            &:hover {
-              border-radius: 3px;
-              background-color: rgba(255,255,255,0.2);
+          &:hover {
+            border-radius: 3px;
+            background-color: rgba(255,255,255,0.2);
+          }
+
+          &.settings__add {
+            margin-right: 15px;
+            font-size: 30px;
+
+            button {
+              @include transparent-button();
+              color: white;
+              cursor: pointer;
+            }
+          }
+
+          &.settings__darkmode {
+            button {
+              @include transparent-button();
+              color: white;
+              cursor: pointer;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+
+              svg {
+                width: 20px;
+                height: 20px;
+              }
             }
 
-            &.settings__add {
-              margin-right: 15px;
-              font-size: 30px;
-            }
-
-            &.settings__dark-mode svg {
-              width: 20px;
-              height: 20px;
-            }
           }
         }
       }
