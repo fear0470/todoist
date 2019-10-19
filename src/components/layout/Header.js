@@ -1,5 +1,5 @@
 import React, { useState } from 'react';  
-import { FaPizzaSlice, FaBlackTie } from 'react-icons/fa';
+import { FaPizzaSlice, FaBlackTie, FaPlus } from 'react-icons/fa';
 import { AddTask } from '../AddTask';
 
 export const Header = ({ darkMode, setDarkMode }) => {
@@ -28,7 +28,7 @@ export const Header = ({ darkMode, setDarkMode }) => {
                   setShouldShowMain(true);
                 }}
               >
-                +
+                <FaPlus />
               </button>
             </li>
             <li className="settings__darkmode">
