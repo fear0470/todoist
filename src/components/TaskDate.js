@@ -18,6 +18,7 @@ export const TaskDate = ({ setTaskDate,showTaskDate, setShowTaskDate }) =>
             }}
             data-testid="task-date-today"
             tabIndex={0}
+            aria-label="Select today as the task date"
             role="button"
           >
             <span>
@@ -47,6 +48,7 @@ export const TaskDate = ({ setTaskDate,showTaskDate, setShowTaskDate }) =>
             data-testid="task-date-tomorrow"
             role="button"
             tabIndex={0}
+            aria-label="Select tomorrow as the task date"
           >
             <span>
               <FaSun />
@@ -74,6 +76,7 @@ export const TaskDate = ({ setTaskDate,showTaskDate, setShowTaskDate }) =>
             }}
             data-testid="task-date-next-week"
             tabIndex={0}
+            aria-label="Select next week as the task date"
             role="button"
           >
             <span>
