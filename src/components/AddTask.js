@@ -68,6 +68,7 @@ export const AddTask = ({
           onClick={() => setShowMain(!showMain)}
           onKeyDown={() => setShowMain(!showMain)}
           tabIndex={0}
+          aria-label="Add task"
           role="button"
         >
           <span className="add-task__plus">+</span>
