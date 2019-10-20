@@ -19,6 +19,7 @@ return (
     data-testid="checkbox-action"
     onClick={()=> archiveTask()}
     onKeyDown={() => archiveTask()}
+    aria-label={`Mark ${taskDesc} as done?`}
     role="button"
     tabIndex={0}
   >

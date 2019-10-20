@@ -49,7 +49,7 @@ export const IndividualProject = ({ project }) => {
                    onKeyDown={() => setShowConfirm(!showConfirm)}
                    tabIdex={0}
                    role="button"
-                   aria-label="Cancell adding project, do not delete"
+                   aria-label="Cancel adding project, do not delete"
                    >
                     Cancel
                 </span>
