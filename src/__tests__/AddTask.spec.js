@@ -109,11 +109,39 @@ describe('<AddTask />', () => {
     it('renders the <AddTask /> task date when using onKeyDown', () => {
         const { queryByTestId } = render(<AddTask showAddTaskMain />);
 
+        fireEvent.keyDown(queryByTestId('show-main-action'));
+        expect(queryByTestId('add-task-main')).toBeTruthy();
+
+        fireEvent.keyDown(queryByTestId('add-task-main-cancel'));
+        expect(queryByTestId('add-task-main')).toBeTruthy();
+    });
+
+    it('renders the <AddTask /> for quick add task and then clicks cancel using onClick', () => {
+        const showQuickAddTask = true;
+        const setShowQuickAddTask = jest.fn(() => !showQuickAddTask);
+        const { queryByTestId } = render(
+            <AddTask setShowQuickAddTask={setShowQuickAddTask} showQuickAddTask />
+        );
+
         fireEvent.click(queryByTestId('show-main-action'));
         expect(queryByTestId('add-task-main')).toBeTruthy();
 
-        fireEvent.click(queryByTestId('add-task-main-cancel'));
+        fireEvent.click(queryByTestId('add-task-quick-cancel'));
+        expect(setShowQuickAddTask.toHaveBeenCalled();
+    });
+
+    it('renders the <AddTask /> for quick add task and then clicks cancel using onKeyDown', () => {
+        const showQuickAddTask = true;
+        const setShowQuickAddTask = jest.fn(() => !showQuickAddTask);
+        const { queryByTestId } = render(
+            <AddTask setShowQuickAddTask={setShowQuickAddTask} showQuickAddTask />
+        );
+
+        fireEvent.keyDown(queryByTestId('show-main-action'));
         expect(queryByTestId('add-task-main')).toBeTruthy();
+
+        fireEvent.keyDown(queryByTestId('add-task-quick-cancel'));
+        expect(setShowQuickAddTask.toHaveBeenCalled();
     });
 
 })
