@@ -56,4 +56,64 @@ describe('<AddTask />', () => {
         expect(queryByTestId('add-task-main')).toBeTruthy();
     });
 
+    it('renders the <AddTask /> project overlay when using onClick', () => {
+        const { queryByTestId } = render(<AddTask showAddTaskMain />);
+
+        fireEvent.click(queryByTestId('show-main-action'));
+        expect(queryByTestId('add-task-main')).toBeTruthy();
+
+        fireEvent.click(queryByTestId('show-project-overlay'));
+        expect(queryByTestId('project-overlay')).toBeTruthy();
+    });
+
+    it('renders the <AddTask /> project overlay when using onKeyDown', () => {
+        const { queryByTestId } = render(<AddTask showAddTaskMain />);
+
+        fireEvent.keyDown(queryByTestId('show-main-action'));
+        expect(queryByTestId('add-task-main')).toBeTruthy();
+
+        fireEvent.keyDown(queryByTestId('show-project-overlay'));
+        expect(queryByTestId('project-overlay')).toBeTruthy();
+    });
+
+    it('renders the <AddTask /> task date when using onClick', () => {
+        const { queryByTestId } = render(<AddTask showAddTaskMain />);
+
+        fireEvent.click(queryByTestId('show-main-action'));
+        expect(queryByTestId('add-task-main')).toBeTruthy();
+
+        fireEvent.click(queryByTestId('show-task-date-overlay'));
+        expect(queryByTestId('task-date-overlay')).toBeTruthy();
+    });
+
+    it('renders the <AddTask /> task date when using onKeyDown', () => {
+        const { queryByTestId } = render(<AddTask showAddTaskMain />);
+
+        fireEvent.keyDown(queryByTestId('show-main-action'));
+        expect(queryByTestId('add-task-main')).toBeTruthy();
+
+        fireEvent.keyDown(queryByTestId('show-task-date-overlay'));
+        expect(queryByTestId('task-date-overlay')).toBeTruthy();
+    });
+
+    it('renders the <AddTask /> main when cancel is clicked using onClick', () => {
+        const { queryByTestId } = render(<AddTask showAddTaskMain />);
+
+        fireEvent.click(queryByTestId('show-main-action'));
+        expect(queryByTestId('add-task-main')).toBeTruthy();
+
+        fireEvent.click(queryByTestId('add-task-main-cancel'));
+        expect(queryByTestId('add-task-main')).toBeTruthy();
+    });
+
+    it('renders the <AddTask /> task date when using onKeyDown', () => {
+        const { queryByTestId } = render(<AddTask showAddTaskMain />);
+
+        fireEvent.click(queryByTestId('show-main-action'));
+        expect(queryByTestId('add-task-main')).toBeTruthy();
+
+        fireEvent.click(queryByTestId('add-task-main-cancel'));
+        expect(queryByTestId('add-task-main')).toBeTruthy();
+    });
+
 })
