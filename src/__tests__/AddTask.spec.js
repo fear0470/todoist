@@ -2,6 +2,7 @@ import React from 'react';
 import { render, fireEvent, cleanup } from '@testing-library/react';
 import { AddTask } from '../components/AddTask';
 import { useSelectedProjectValue } from '../context';
+import expectExport from 'expect';
 
 beforeEach(cleanup);
 
@@ -142,6 +143,60 @@ describe('<AddTask />', () => {
 
         fireEvent.keyDown(queryByTestId('add-task-quick-cancel'));
         expect(setShowQuickAddTask.toHaveBeenCalled();
+    });
+
+    it('renders <AddTask /> and adds a task to TODAY', () => {
+        useSelectedProjectValue.mockImplementation(() => ({
+            selectedProject: 'TODAY',
+        }));
+
+        const showQuickAddTask = true;
+        const setShowQuickAddTask = jest.fn(() => !showQuickAddTask);
+        const { queryByTestId } = render(
+            <AddTask
+                showQuickAddTask={showQuickAddTask}
+                setShowQuickAddTask={setShowQuickAddTask}
+            />
+        );
+        fireEvent.click(queryByTestId('show-main-action'));
+        expect(queryByTestId('add-task-content')).toBeTruthy();
+
+        fireEvent.change(queryByTestId('add-task-content'), {
+            target: { value: 'I am a new task and I am good' },
+        });
+        expect(queryByTestId('add-task-content').value).toBe(
+            'I am a new task and I am good'
+        );
+
+        fireEvent.click(queryByTestId('add-task'));
+        expect(setShowQuickAddTask).toHaveBeenCalled();
+    });
+
+    it('renders <AddTask /> and adds a task to NEXT_7', () => {
+        useSelectedProjectValue.mockImplementation(() => ({
+            selectedProject: 'NEXT_7',
+        }));
+
+        const showQuickAddTask = true;
+        const setShowQuickAddTask = jest.fn(() => !showQuickAddTask);
+        const { queryByTestId } = render(
+            <AddTask
+                showQuickAddTask={showQuickAddTask}
+                setShowQuickAddTask={setShowQuickAddTask}
+            />
+        );
+        fireEvent.click(queryByTestId('show-main-action'));
+        expect(queryByTestId('add-task-content')).toBeTruthy();
+
+        fireEvent.change(queryByTestId('add-task-content'), {
+            target: { value: 'I am a new task and I am good' },
+        });
+        expect(queryByTestId('add-task-content').value).toBe(
+            'I am a new task and I am good'
+        );
+
+        fireEvent.click(queryByTestId('add-task'));
+        expect(setShowQuickAddTask).toHaveBeenCalled();
     });
 
 })
