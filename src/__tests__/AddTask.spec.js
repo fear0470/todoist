@@ -41,4 +41,19 @@ describe('<AddTask />', () => {
 
         expect(queryByTestId('quick-add-task')).toBeTruthy();
     });
+
+    it('renders the <AddTask /> main showable using onClick', () => {
+        const { queryByTestId } = render(<AddTask showAddTaskMain />);
+
+        fireEvent.click(queryByTestId('show-main-action'));
+        expect(queryByTestId('add-task-main')).toBeTruthy();
+    });
+
+    it('renders the <AddTask /> main showable using keyDown', () => {
+        const { queryByTestId } = render(<AddTask showAddTaskMain />);
+
+        fireEvent.keyDown(queryByTestId('show-main-action'));
+        expect(queryByTestId('add-task-main')).toBeTruthy();
+    });
+
 })
