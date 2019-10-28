@@ -63,5 +63,18 @@ describe('<Header />', () => {
 
             fireEvent.keyDown(queryByTestId('quick-add-task-action'));
             expect(queryByTestId('add-task-main')).toBeTruthy();
+
+            it('renders the header component and set quick add task to true and then false using onKeyDown', () => {
+                const darkMode = false;
+    
+                const { queryByTestId } = render(<Header darkMode={darkMode} />);
+                expect(queryByTestId('header')).toBeTruthy();
+    
+                fireEvent.keyDown(queryByTestId('quick-add-task-action'));
+                expect(queryByTestId('add-task-main')).toBeTruthy();
+
+                fireEvent.keyDown(queryByTestId('add-task-quick-cancel'));
+                expect(queryByTestId('add-task-main')).toBeFalsy();
+            });
         });
-})
+});
