@@ -62,5 +62,27 @@ describe('<Sidebar />', () => {
             expect(queryByTestId('today').classList.contains('active')).toBeFalsy();
             expect(queryByTestId('inbox').classList.contains('active')).toBeFalsy();
         });
-    })
-})
+
+        it('hides and shows the sidebar projects using onClick', () => {
+            const { queryByTestId, queryByText, getByText } = render(<Sidebar />);
+            expect(queryByTestId('sidebar')).toBeTruthy();
+
+            fireEvent.click(getByText('Projects'));
+            expect(queryByTestId('Add Project')).toBeFalsy();
+
+            fireEvent.click(getByText('Projects'));
+            expect(queryByTestId('Add Project')).toBeTruthy();
+        });
+
+        it('hides and shows the sidebar projects using onKeyDown', () => {
+            const { queryByTestId, queryByText, getByText } = render(<Sidebar />);
+            expect(queryByTestId('sidebar')).toBeTruthy();
+
+            fireEvent.keyDown(getByText('Projects'));
+            expect(queryByTestId('Add Project')).toBeFalsy();
+
+            fireEvent.keyDown(getByText('Projects'));
+            expect(queryByTestId('Add Project')).toBeTruthy();
+        });
+    });
+});
