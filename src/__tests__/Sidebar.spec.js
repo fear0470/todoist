@@ -1,6 +1,8 @@
 import React from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import { Sidebar } from '../components/layout/Sidebar';
+import { italic } from 'ansi-colors';
+import expectExport from 'expect';
 
 jest.mock('..context', () => ({
     useSelectedProjectValue: jest.fn(() => ({
@@ -20,3 +22,23 @@ jest.mock('..context', () => ({
 }));
 
 beforeEach(cleanup);
+
+describe('<Sidebar />', () => {
+    describe('Success', () => {
+        it('renders the <Sidebar />', () =>{
+            const { queryByTestId } = render(<Sidebar />);
+            expect(queryByTestId('sidebar')).toBeTruthy();
+        });
+
+        it('changes the active project to inbox in collated tasks', () => {
+            const { queryByTestId } = render(<Sidebar />);
+            expect(queryByTestId('sidebar')).toBeTruthy();
+            fireEvent.click(queryByTestId('inbox-action'));
+            fireEvent.keyDown(queryByTestId('inbox-action'));
+
+            expect(queryByTestId('inbox').classList.contains('active')).toBeTruthy();
+            expect(queryByTestId('today').classList.contains('active')).toBeFalsy();
+            expect(queryByTestId('next_7').classList.contains('active')).toBeFalsy();
+        });
+    })
+})
