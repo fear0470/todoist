@@ -40,3 +40,21 @@ jest.mock('../context', () => ({
         ],
     }));
 }));
+
+jest.mock('../hooks', () => ({
+    useTasks: () => ({
+        tasks: [
+            {
+              id: 'mx2taaXpF38vYqMGbVtY',
+              archived: false,
+              date: '21/07/2019',
+              projectId: '1',
+              task:
+                'Would I rather be feared or loved? Easy. Both. I want people to be afraid of how much they love me.',
+              userId: 'jlIFXIwyAL3tzHMtzRbw',
+            },
+          ],
+    });
+}));
+
+beforeEach(cleanup);
