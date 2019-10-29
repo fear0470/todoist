@@ -2,8 +2,6 @@ import React from 'react';
 import { render, cleanup } from '@testing-library/react';
 import { Tasks } from '../components/Tasks';
 import { useSelectedProjectValue } from '../context';
-import { italic } from 'ansi-colors';
-import expectExport from 'expect';
 
 jest.mock('../context', () => ({
     useSelectedProjectValue: jest.fn(),
