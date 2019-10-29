@@ -40,5 +40,27 @@ describe('<Sidebar />', () => {
             expect(queryByTestId('today').classList.contains('active')).toBeFalsy();
             expect(queryByTestId('next_7').classList.contains('active')).toBeFalsy();
         });
+
+        it('changes the active project to today in collated tasks', () => {
+            const { queryByTestId } = render(<Sidebar />);
+            expect(queryByTestId('sidebar')).toBeTruthy();
+            fireEvent.click(queryByTestId('today-action'));
+            fireEvent.keyDown(queryByTestId('today-action'));
+
+            expect(queryByTestId('today').classList.contains('active')).toBeTruthy();
+            expect(queryByTestId('inbox').classList.contains('active')).toBeFalsy();
+            expect(queryByTestId('next_7').classList.contains('active')).toBeFalsy();
+        });
+
+        it('changes the active project to next_7 in collated tasks', () => {
+            const { queryByTestId } = render(<Sidebar />);
+            expect(queryByTestId('sidebar')).toBeTruthy();
+            fireEvent.click(queryByTestId('next_7-action'));
+            fireEvent.keyDown(queryByTestId('next_7-action'));
+
+            expect(queryByTestId('next_7').classList.contains('active')).toBeTruthy();
+            expect(queryByTestId('today').classList.contains('active')).toBeFalsy();
+            expect(queryByTestId('inbox').classList.contains('active')).toBeFalsy();
+        });
     })
 })
