@@ -4,4 +4,4 @@
   <h3>Todoist in action</h3>
   ![]( todoist/public/images/todoist1.png )
   <h3>Using the Quick Add Task button to quickly add a task</h3>
-  ![](public/images/todoist2.png)
+  ![](/images/todoist2.png)
